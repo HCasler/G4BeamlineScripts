@@ -233,7 +233,7 @@ endif
 
 param -unset Random_Seed=Time
 
-randomseed $Random_Seed
+randomseed 50
 
 
 # ****************************************************************************
