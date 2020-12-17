@@ -11,7 +11,7 @@ param CollCol="0.6,0.55,0.5"
 # It encompasses the shelf on which the beam dump sits plus the 
 # extinction monitor's magnet and detector rooms
 
-box PBSenc material=Air color=invisible \
+box PBSenc material=Vacuum color=invisible \
 	length=$PBSenclosure_length \
 	width=$PBSenclosure_width \
 	height=$PBSenclosure_height

@@ -32,7 +32,7 @@ param -unset ScintDetector=0
 # *********************************************
 param -unset PScryostatKill=0
 param -unset PSshieldKill=0
-param -unset PBS_Kill=0
+param -unset PBS_Kill=1 # was 0
 param -unset filt_Kill=0
 
 # *********************************************
