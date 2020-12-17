@@ -65,11 +65,11 @@ tubs PSEfaceV outerRadius=$ir innerRadius=0.0 length=$PSendcap_thick \
 tubs PSEwin1v outerRadius=$PSendcap_winR1 innerRadius=0.0 \
 	length=$PSendcap_thick material=Vacuum color=$Titanium
 tubs PSEwin1m outerRadius=$PSendcap_winR1+$PSendcap_winT innerRadius=0.0 \
-	length=$PSendcap_winT material=$PSendcap_winM color=$Titanium
+	length=$PSendcap_winT material=Vacuum color=$Red
 tubs PSEwin2v outerRadius=$PSendcap_winR2 innerRadius=0.0 \
 	length=$PSendcap_thick material=Vacuum color=$Titanium
 tubs PSEwin2m outerRadius=$PSendcap_winR2+$PSendcap_winT innerRadius=0.0 \
-	length=$PSendcap_winT material=$PSendcap_winM color=$Titanium
+	length=$PSendcap_winT material=Vacuum color=$Red
 
 place PSEwin1v parent=PSEfaceV x=$PSendcap_winX1 y=$PSendcap_winY1 z=0
 place PSEwin2v parent=PSEfaceV x=$PSendcap_winX2 y=$PSendcap_winY2 z=0

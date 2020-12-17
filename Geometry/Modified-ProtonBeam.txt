@@ -571,16 +571,17 @@ endif
 # don't know where this belongs ... nominally place it halfway between
 # the downstream IC943 flange and the end of the PS pipe (a distance
 # of 10.5"
+# material for ff_vacuum_window and ff_vacuum_window_aperture were Ti
 param ff_vacuum_window_aperture=4.8/2*25.4
 param ff_vacuum_window_thickness=0.002*25.4
-tubs ff_vacuum_window material=Ti color=$PaleVioletRed \
+tubs ff_vacuum_window material=Vacuum color=$PaleVioletRed \
      length=$ff_vacuum_window_thickness \
      innerRadius=0 outerRadius=$ff_vacuum_window_aperture
 param L=$IC943_center-(3.0625+5.25)*25.4
 place ff_vacuum_window \
       rotation=x$xrot,y$EndBeamYrot \
       x=$xpos0+$xdir0*$L y=$ypos0+$ydir0*$L z=$zpos0+$zdir0*$L
-tubs ff_vacuum_window_aperture material=Ti color=$PaleVioletRed,0.3 \
+tubs ff_vacuum_window_aperture material=Vacuum color=$PaleVioletRed,0.3 \
      length=$ff_vacuum_window_thickness \
      innerRadius=$ff_vacuum_window_aperture outerRadius=6*25.4
 place ff_vacuum_window_aperture \

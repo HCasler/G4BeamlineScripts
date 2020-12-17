@@ -300,7 +300,8 @@ param pBeamStop_zo=$pBeamStop_z+$pBeamStop_face*cos($pBeamStop_yrot*degree)
 # ***********************
 # Target Hall and Beam Stop Enclosure
 # ***********************
-param TargetHall_material=Air
+# param TargetHall_material=Air
+param TargetHall_material=Vacuum
 
 # Enclosure width
 param PBSenclosure_width=(13*12)*25.4
