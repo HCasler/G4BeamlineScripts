@@ -7,6 +7,11 @@ param -unset Num_Events=10
 param -unset UsePrimaryBeam=1
 param -unset READ_Beam_File=3
 
+param dxBeamAtTarget=0
+param dyBeamAtTarget=0
+param dxBendInPlane=0
+param dyBendInPlane=0
+
 param -unset Use_Transparent_PS_Shield=1
 
 #
