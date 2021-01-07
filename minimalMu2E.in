@@ -5,6 +5,8 @@
 param -unset First_Event=1
 param -unset Num_Events=10
 param -unset UsePrimaryBeam=1
+param -unset READ_Beam_File=3
+
 param -unset Use_Transparent_PS_Shield=1
 
 #
@@ -609,7 +611,7 @@ param -unset tracker=3
 # 9 - Hayman2 Design
 # 10- Hayman2 made of vacuum, with virtual detectors in front and center
 
-param -unset Use_Proton_Target=10
+param -unset Use_Proton_Target=9
 
 if $Use_Proton_Target==3
     include ./Geometry/Proton_Target_Bicycle.txt
@@ -693,6 +695,11 @@ elseif $READ_Beam_File==2
    beam ascii nEvents=$Num_Events\
         filename=/mu2e/data/users/oksuzian/Source_V21_bm.txt
    param Use_Basic_Det=0
+
+elseif $READ_Beam_File==3
+    beam ascii nEvents=$Num_Events\
+        filename=./Geometry/Beamfiles/ExtrBeamTransToMirror12142015_krl_cuts.dat
+    param Use_Basic_Det=0
 
 else
    beam gaussian \
