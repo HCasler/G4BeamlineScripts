@@ -252,7 +252,7 @@ param MECO_G4_zTrans=(5.00+2.929)*1000
 # Includes extinction monitor.
 
 include ./Geometry/GeometryParameters.txt
-include ./Geometry/PS_Proton_Beam_Stop.txt
+# include ./Geometry/PS_Proton_Beam_Stop.txt
 param -unset UsePrimaryBeam=0
 if $UsePrimaryBeam==1
   param PSshield_Entrance=1
@@ -266,7 +266,7 @@ endif
 # The default walls, floor and ceiling are invisible.
 # If you would like to see everything, define Invisible_Walls parameter to 0
 param -unset Invisible_Walls=1
-include ./Geometry/Walls_Floors_9_16_13.txt
+# include ./Geometry/Walls_Floors_9_16_13.txt
 
 
 # ****************************************************************************
@@ -289,7 +289,7 @@ param -unset Use_Field=1
 param -unset Generate_Fieldmap=0
 param -unset Use_External_Field=0
 
-include ./Geometry/Mu2e_Mau9_Coils.txt
+# include ./Geometry/Mu2e_Mau9_Coils.txt
 
 if $Use_Field==1
    if $Generate_Fieldmap==1
@@ -305,13 +305,13 @@ if $Use_Field==1
             y=0 \
             z=7929.0
  
-      fieldmap DSMagneticField \
-               file=/cvmfs/mu2e.opensciencegrid.org/DataFiles/BFieldMaps/GA05/DSMap.txt
+#      fieldmap DSMagneticField \
+#               file=/cvmfs/mu2e.opensciencegrid.org/DataFiles/BFieldMaps/GA05/DSMap.txt
  
-      place DSMagneticField \
-            x=-3904.0 \
-            y=0 \
-            z=7929.0
+#      place DSMagneticField \
+#            x=-3904.0 \
+#            y=0 \
+#            z=7929.0
  
       fieldmap TSuMagneticField \
                file=/cvmfs/mu2e.opensciencegrid.org/DataFiles/BFieldMaps/GA05/TSuMap.txt
@@ -321,13 +321,13 @@ if $Use_Field==1
             y=0 \
             z=7929.0
  
-      fieldmap TsdMagneticField \
-               file=/cvmfs/mu2e.opensciencegrid.org/DataFiles/BFieldMaps/GA05/TSdMap.txt
+#      fieldmap TsdMagneticField \
+#               file=/cvmfs/mu2e.opensciencegrid.org/DataFiles/BFieldMaps/GA05/TSdMap.txt
  
-      place TsdMagneticField \
-            x=-3904.0 \
-            y=0 \
-            z=7929.0
+#      place TsdMagneticField \
+#            x=-3904.0 \
+#            y=0 \
+#            z=7929.0
    
       if $Use_External_Field==1
             fieldmap ExtMonUCIAreaMagneticField \
@@ -401,11 +401,19 @@ endif
 param -unset Use_Cryostat=1
 
 if $Use_Cryostat==1
-  include ./Geometry/TS_Cryostat.txt
-  include ./Geometry/DS_Cryostat.txt
+#  include ./Geometry/TS_Cryostat.txt
+#  include ./Geometry/DS_Cryostat.txt
 
 endif
 
+# params from TS_cryostat.txt:
+param TScryo_innerR=249.8
+param TScryo_outerR=262.5
+param TScryo_Radius=2929
+param TScryo_color_a=$Red
+param TScryo_color_b=$Invisible
+param TScryo_color_c=$Invisible
+param TScryo_color_d=$PaleVioletRed 
 
 # ****************************************************************************
 #                         Production Solenoid Shielding
@@ -413,15 +421,15 @@ endif
 # Use the Bronze shielding design- P.Kasper
 #        
 
-include ./Geometry/PScryostat.txt
+# include ./Geometry/PScryostat.txt
 
 # ****************************************************************************
 #                    CRV Shielding 
 # ****************************************************************************
 #
 
-include ./Geometry/CRV_Shielding.txt
-include ./Geometry/PS-TS_Shield.txt
+# include ./Geometry/CRV_Shielding.txt
+# include ./Geometry/PS-TS_Shield.txt
 
 # ****************************************************************************
 #                         Detector Solenoid Neutron Shield
@@ -435,14 +443,14 @@ include ./Geometry/PS-TS_Shield.txt
 # ****************************************************************************
 # From Dave Hedin 5-23-2013 
 
-include ./Geometry/DS_Proton_Absorber.txt
+# include ./Geometry/DS_Proton_Absorber.txt
 
 # ****************************************************************************
 #                         Muon Beamline Crystal Monitor 
 # ****************************************************************************
 # From Dave Hedin 5-23-2013- Placeholder for now until studies done
 
-include ./Geometry/DS_STM_Shield.txt
+# include ./Geometry/DS_STM_Shield.txt
 
 
 # ****************************************************************************
@@ -457,11 +465,11 @@ include ./Geometry/DS_STM_Shield.txt
 
 param -unset Use_Scin_Det=1
 
-if $Use_Scin_Det==1
-    include ./Geometry/CRV_10_8_13.txt
-else
-    include ./Geometry/CRV_10_8_13_noVD.txt
-endif
+#if $Use_Scin_Det==1
+#    include ./Geometry/CRV_10_8_13.txt
+#else
+#    include ./Geometry/CRV_10_8_13_noVD.txt
+#endif
 
 
 # ****************************************************************************
@@ -472,7 +480,44 @@ endif
 #        "Collimators Design" 
 #        Dob-db 1044-v1, Nikolai Andreev, 8/17/2010
 
-include ./Geometry/TS_Collimators.txt
+# include ./Geometry/TS_Collimators.txt
+
+# parameters from TS_Collimators.txt:
+param Coll_pbarU_Rout=158.75
+param Coll_pbarU_length=.25
+param Coll_pbarU_Rin=0.0
+param Coll_pbarU_x=0.0
+param Coll_pbarU_z=-4144.02+$MECO_G4_zTrans
+param Coll_01_Rout=240.0
+param Coll_01_Rin_1=150.0
+param Coll_01_Rin_2=160.0
+param Coll_01_length=1000.0
+param Coll_01_x=0.0
+param Coll_01_z=4385.0-$Coll_01_length/2.0
+param -unset TS_Collimator_Color=$Copper
+param Coll_pbar_Rout=230.0
+param Coll_pbar_length=.164
+param Coll_pbar_Rin=0.0
+param Coll_pbar_x=$MECO_G4_xTrans
+param Coll_pbar_z=$MECO_G4_zTrans
+param Wedge_pbar_height=190.0
+param Wedge_pbar_upperWidth=.724
+param Wedge_pbar_lowerWidth=0.001
+param Wedge_pbar_length=350.
+param Wedge_pbar_Rin=0.0
+param Wedge_pbar_x=$MECO_G4_xTrans-1
+param Wedge_pbar_y=95.0
+param Wedge_pbar_z=$MECO_G4_zTrans
+param Coll_03_length=800.0
+param Coll_03_up_x=425+$MECO_G4_xTrans
+param Coll_03_up_z=$MECO_G4_zTrans
+param Coll_03_down_x=-425+$MECO_G4_xTrans
+param Coll_03_down_z=$MECO_G4_zTrans
+param Coll_05_Rout=240.0
+param Coll_05_length=1000.0
+param Coll_05_Rin=128.0
+param Coll_05_x=-3904+$MECO_G4_xTrans
+param Coll_05_z=3430+$MECO_G4_zTrans
 
 
 # ****************************************************************************
@@ -484,7 +529,7 @@ include ./Geometry/TS_Collimators.txt
 
 param -unset Use_Stopping_Target=1
 
-include ./Geometry/Stopping_Target.txt
+# include ./Geometry/Stopping_Target.txt
 
 
 # ****************************************************************************
@@ -497,17 +542,17 @@ include ./Geometry/Stopping_Target.txt
 
 param -unset tracker=3
 
-if $tracker==1 
-   include ./Geometry/MECO_Tracker.txt 
+#if $tracker==1 
+#   include ./Geometry/MECO_Tracker.txt 
 
-elseif $tracker==2
-       include ./Geometry/T_Tracker_Straws.txt 
+#elseif $tracker==2
+#       include ./Geometry/T_Tracker_Straws.txt 
 
-elseif $tracker==3
+#elseif $tracker==3
 #       include ./Geometry/T_Tracker_Planes.txt 
 # it's full of geometry collisions!
 
-endif
+#endif
 
 # ****************************************************************************
 #                                Calorimeter
@@ -515,7 +560,7 @@ endif
 # V. Khalaytan Oct 2013
 #
 
-include ./Geometry/Calorimeter_Discs.txt 
+# include ./Geometry/Calorimeter_Discs.txt 
 
 
 # ****************************************************************************
@@ -524,7 +569,7 @@ include ./Geometry/Calorimeter_Discs.txt
 # From Dave Hedin 3-2017  default is maybe final version
 
 #include ./Geometry/DS_Muon_Beam_Dump_n14.txt
-include ./Geometry/DS_Muon_Beam_Dump.txt
+# include ./Geometry/DS_Muon_Beam_Dump.txt
 
 
 
