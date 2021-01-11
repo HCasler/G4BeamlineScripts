@@ -50,7 +50,7 @@ box PWCGasVol height=$PWCActiveHeight width=$PWCActiveWidth length=12*$PWCSpacer
 # Kapton planes, some of which are virtual detectors
 virtualdetector biasPlane height=$PWCActiveHeight width=$PWCActiveWidth length=$PWCKaptonThick material=KAPTON
 # TURN GROUND PLANE INTO VACUUM FOR THIS
-box groundPlane height=$PWCActiveHeight width=$PWCActiveWidth length=$PWCKaptonThick material=Vacuum
+box groundPlane height=$PWCActiveHeight width=$PWCActiveWidth length=$PWCKaptonThick material=KAPTON
 # G10 "frame" containing the gas
 param PWCFrameWidth=($PWCPlateWidth-$PWCActiveHeight)/2
 box framePieceLong height=$PWCFrameWidth width=$PWCPlateWidth length=$PWCFullThick material=G10 color=$Magenta

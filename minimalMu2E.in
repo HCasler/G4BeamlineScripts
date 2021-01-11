@@ -263,7 +263,7 @@ include ./Geometry/GeometryParameters.txt
 param -unset UsePrimaryBeam=0
 if $UsePrimaryBeam==1
   param PSshield_Entrance=1
-  include ./Geometry/ProtonBeam.txt
+  include ./Geometry/Modified-ProtonBeam.txt
 endif
 
 
@@ -703,7 +703,7 @@ elseif $READ_Beam_File==2
 
 elseif $READ_Beam_File==3
     beam ascii nEvents=$Num_Events\
-        filename=./Geometry/Beamfiles/ExtrBeamTransToMirror12142015_krl_cuts.dat
+        filename=./Geometry/Beamfiles/millionProtons_02.txt
     param Use_Basic_Det=0
 
 else

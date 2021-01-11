@@ -50,8 +50,10 @@ box fin_long length=5.000000 height=10.489000 width=1. material=WL10 color=$Tung
 box fin_long_clipped length=5.000000 height=10.489000 width=1. material=WL10 color=$Tungsten
 box fin_short length=2.500000 height=10.489000 width=1. material=WL10 color=$Tungsten
 box fin_top length=216.000000 height=2.510000 width=1. material=WL10 color=$Tungsten
+virtualdetector pTargetVirtDet radius=14.0 length=0.001 color=$Magenta
 
 group pTarget material=Vacuum radius=17.0 length=232.0
+	place pTargetVirtDet z=110.5
 	place core_long rename=+_core_0 z=107.500000
 	place core_short rename=+_core_1 z=101.750000
 	place core_short rename=+_core_2 z=97.250000
